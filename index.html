@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hacker Tool: Google Dork Helper</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #000; color: #0f0; padding: 40px; }
+        .terminal { max-width: 600px; margin: auto; border: 1px solid #0f0; padding: 20px; box-shadow: 0 0 15px #0f0; }
+        input, select { width: 100%; padding: 10px; margin: 10px 0; background: #111; color: #0f0; border: 1px solid #0f0; }
+        button { width: 100%; padding: 10px; background: #0f0; color: #000; border: none; font-weight: bold; cursor: pointer; }
+        .tip { font-size: 0.8em; color: #888; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <h2>> OSINT RECON TOOL</h2>
+        <p>Target Domain (e.g., example.com):</p>
+        <input type="text" id="target" placeholder="example.com">
+
+        <p>Vulnerability Type:</p>
+        <select id="dorkType">
+            <option value="site:TARGET ext:php | ext:asp">Exposed Server Files</option>
+            <option value="site:TARGET inurl:admin | inurl:login">Admin Login Pages</option>
+            <option value="site:TARGET ext:log | ext:txt | ext:conf">Exposed Log/Config Files</option>
+            <option value="site:TARGET intitle:'index of' /">Directory Listing (Open Folders)</option>
+        </select>
+
+        <button onclick="launchDork()">EXECUTE RECON</button>
+        <p class="tip">* This opens a new tab with a specialized Google search for your target.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
