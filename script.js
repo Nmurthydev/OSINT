@@ -1,30 +1,17 @@
-//function launchDork() {
-   // const target = document.getElementById('target').value;
-   // const dorkPattern = document.getElementById('dorkType').value;
-
-   // if (!target) {
-       // alert("Please enter a target domain!");
-        //return;
-   // }
-
-    // Replace TARGET placeholder with user input
-    //const finalQuery = dorkPattern.replace("TARGET", target);
-
-    // Open Google search with the dork query
-  //  window.open(`www.google.com{encodeURIComponent(finalQuery)}`, '_blank');
-//}
-function launchDork() {
-    const target = document.getElementById('target').value;
-    const dorkPattern = document.getElementById('dorkType').value;
+function performSearch() {
+    // 1. Get user input
+    const query = document.getElementById('query').value.trim();
     
-    if (!target) {
-        alert("Please enter a target domain!");
+    // 2. Validate input
+    if (!query) {
+        alert("Please enter a search query!");
         return;
     }
 
-    // This must include the full www.google.com
-    const finalQuery = dorkPattern.replace("TARGET", target);
-    const fullUrl = "www.google.com" + encodeURIComponent(finalQuery);
+    // 3. Build the Absolute URL (fixes the 404 error)
+    const fullUrl = "www.google.com" + encodeURIComponent(query);
     
+    // 4. Perform the search in a new tab
+    console.log("Performing search for: " + query);
     window.open(fullUrl, '_blank');
 }
