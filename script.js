@@ -1,17 +1,23 @@
-function performSearch() {
-    // 1. Get user input
-    const query = document.getElementById('query').value.trim();
-    
+function launchDork() {
+    // 1. Get user inputs
+    const target = document.getElementById('target').value.trim();
+    const dorkTemplate = document.getElementById('dorkType').value;
+
     // 2. Validate input
-    if (!query) {
-        alert("Please enter a search query!");
+    if (!target) {
+        alert("Please enter a target domain!");
         return;
     }
 
-    // 3. Build the Absolute URL (fixes the 404 error)
-    const fullUrl = "www.google.com" + encodeURIComponent(query);
-    
-    // 4. Perform the search in a new tab
-    console.log("Performing search for: " + query);
+    // 3. Build the actual search query
+    // Replaces the placeholder 'TARGET' in your dropdown values with the actual domain
+    const finalQuery = dorkTemplate.replace("TARGET", target);
+
+    // 4. Construct valid Google Search URL
+    // Must include https:// and the /search?q= path
+    const fullUrl = "" + encodeURIComponent(finalQuery);
+
+    // 5. Open in a new tab
+    console.log("Executing recon for: " + target);
     window.open(fullUrl, '_blank');
 }
