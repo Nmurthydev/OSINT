@@ -1,5 +1,6 @@
 # OSINT
 
-# click link for running
+
+# click below link for result
 
 https://nmurthydev.github.io/OSINT/
