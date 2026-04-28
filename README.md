@@ -1,4 +1,5 @@
 # OSINT
 
-click link for tilunning
+# click link for running
+
 https://nmurthydev.github.io/OSINT/
